@@ -11,8 +11,7 @@ module Envato
       # @param collection_id [Integer] Collection ID.
       # @return [Hash] Collection information.
       def get_public_collection(collection_id)
-        response = get "v3/market/catalog/collection?id=#{collection_id}"
-        response[:collection]
+        get "v3/market/catalog/collection?id=#{collection_id}"
       end
 
       # Find an item based on ID.
@@ -42,8 +41,7 @@ module Envato
       def popular_items_by_site(sitename)
         raise Envato::InvalidSiteName unless marketplace_names.include? sitename
 
-        response = get "v1/market/popular:#{sitename}.json"
-        response[:popular]
+        get "v1/market/popular:#{sitename}.json"
       end
 
       # Returns all categories for a marketplace.
@@ -59,8 +57,7 @@ module Envato
       def categories_by_site(sitename)
         raise Envato::InvalidSiteName unless marketplace_names.include? sitename
 
-        response = get "v1/market/categories:#{sitename}.json"
-        response[:categories]
+        get "v1/market/categories:#{sitename}.json"
       end
 
       # Get all pricing types for a single item.
@@ -73,8 +70,7 @@ module Envato
       # @param item_id [Integer] Item ID.
       # @return [Hash] Keyed by license type and price for that license.
       def prices_for_item(item_id)
-        response = get "v1/market/item-prices:#{item_id}.json"
-        response[:'item-prices']
+        get "v1/market/item-prices:#{item_id}.json"
       end
 
       # Get featured item and author by site.
@@ -91,8 +87,7 @@ module Envato
       def featured_by_site(sitename)
         raise Envato::InvalidSiteName unless marketplace_names.include? sitename
 
-        response = get "v1/market/features:#{sitename}.json"
-        response[:features]
+        get "v1/market/features:#{sitename}.json"
       end
 
       # Retrieve random new files based on marketplace.
@@ -108,8 +103,7 @@ module Envato
       def random_new_items_by_site(sitename)
         raise Envato::InvalidSiteName unless marketplace_names.include? sitename
 
-        response = get "v1/market/random-new-files:#{sitename}.json"
-        response[:'random-new-files']
+        get "v1/market/random-new-files:#{sitename}.json"
       end
     end
   end
