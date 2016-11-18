@@ -10,8 +10,7 @@ module Envato
       #
       # @return [Integer] Total count of all users.
       def total_users
-        response = get 'v1/market/total-users.json'
-        response[:'total-users'][:total_users].to_i
+        get 'v1/market/total-users.json'
       end
 
       # Get a total item count across all the marketplaces.
@@ -23,8 +22,7 @@ module Envato
       #
       # @return [Integer] Total count of all items.
       def total_items
-        response = get 'v1/market/total-items.json'
-        response[:'total-items'][:total_items].to_i
+        get 'v1/market/total-items.json'
       end
 
       # Retrieve category information for a marketplace.
@@ -41,8 +39,7 @@ module Envato
       def category_information_by_site(sitename)
         raise Envato::InvalidSiteName unless marketplace_names.include? sitename
 
-        response = get "v1/market/number-of-files:#{sitename}.json"
-        response[:'number-of-files']
+        get "v1/market/number-of-files:#{sitename}.json"
       end
     end
   end
