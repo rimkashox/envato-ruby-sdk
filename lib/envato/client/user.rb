@@ -10,8 +10,7 @@ module Envato
       #
       # @return [Hash] User details.
       def account_details
-        response = get 'v1/market/private/user/account.json'
-        response[:account]
+        get 'v1/market/private/user/account.json'
       end
 
       # Return the current logged in username.
@@ -23,8 +22,7 @@ module Envato
       #
       # @return [String] Current logged in username.
       def username
-        response = get 'v1/market/private/user/username.json'
-        response[:username]
+        get 'v1/market/private/user/username.json'
       end
 
       # Return the current logged in email address.
@@ -36,8 +34,7 @@ module Envato
       #
       # @return [String] Current logged in email address.
       def email_address
-        response = get 'v1/market/private/user/email.json'
-        response[:email]
+        get 'v1/market/private/user/email.json'
       end
 
       # Retrieve information about a user.
@@ -49,8 +46,7 @@ module Envato
       # @param username [String] Username of the user.
       # @return [Hash] Information about the requested username.
       def user_information(username)
-        response = get "v1/market/user:#{username}.json"
-        response[:user]
+        get "v1/market/user:#{username}.json"
       end
 
       # Find badges for a user.
@@ -63,8 +59,7 @@ module Envato
       # @param username [String] Username of the user.
       # @return [Array] Hashes of badge data for the user.
       def badges_for_user(username)
-        response = get "v1/market/user-badges:#{username}.json"
-        response[:'user-badges']
+        get "v1/market/user-badges:#{username}.json"
       end
 
       # Find items by a single user based on marketplace.
@@ -78,8 +73,7 @@ module Envato
       # @return [Array] Hashes of marketplace => item count for all
       #   marketplaces.
       def user_items_by_site(username)
-        response = get "v1/market/user-items-by-site:#{username}.json"
-        response[:'user-items-by-site']
+        get "v1/market/user-items-by-site:#{username}.json"
       end
 
       # Find all new items for user based on a marketplace.
@@ -96,8 +90,7 @@ module Envato
       def new_items_for_user(username, sitename)
         raise Envato::InvalidSiteName unless marketplace_names.include? sitename
 
-        response = get "v1/market/new-files-from-user:#{username},#{sitename}.json"
-        response[:'new-files-from-user']
+        get "v1/market/new-files-from-user:#{username},#{sitename}.json"
       end
 
       # Breakdown a users sales based on month.
@@ -109,8 +102,7 @@ module Envato
       #
       # @return [Hash] Month => value of sales.
       def sales_per_month
-        response = get 'v1/market/private/user/earnings-and-sales-by-month.json'
-        response[:'earnings-and-sales-by-month']
+        get 'v1/market/private/user/earnings-and-sales-by-month.json'
       end
 
       # Get the current user statement.
@@ -123,8 +115,7 @@ module Envato
       # @return [Array] Individual hashes of line entries for each type of
       #   activity.
       def user_statement
-        response = get 'v1/market/private/user/statement.json'
-        response[:statement]
+        get 'v1/market/private/user/statement.json'
       end
 
       # Retrieve logged in author sales.
