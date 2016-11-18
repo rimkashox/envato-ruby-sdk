@@ -51,9 +51,9 @@ module Envato
       end
 
       begin
-        symbolize(JSON.parse(response.body))
+        { headers: response.headers, body: symbolize(JSON.parse(response.body)) }
       rescue JSON::ParserError
-        response.body
+        { headers: response.headers, response.body  }
       end
     end
 
