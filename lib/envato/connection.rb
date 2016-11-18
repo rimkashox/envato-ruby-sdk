@@ -53,7 +53,7 @@ module Envato
       begin
         { headers: response.headers, body: symbolize(JSON.parse(response.body)) }
       rescue JSON::ParserError
-        { headers: response.headers, body: response.body  }
+        { headers: response.headers, body: response.body }
       end
     end
 
